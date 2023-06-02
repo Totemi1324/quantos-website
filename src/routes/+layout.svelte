@@ -1,5 +1,6 @@
 <script lang="ts">
     import * as THREE from 'three'
+    import NavigationBar from './NavigationBar.svelte';
 
 	enum Theme {
 		Dark,
@@ -102,8 +103,7 @@
 </script>
 
 <main>
-    <button on:click={toggleTheme}>Toggle</button>
-
+    <NavigationBar on:toggleTheme={toggleTheme}/>
 	<slot />
 </main>
 
