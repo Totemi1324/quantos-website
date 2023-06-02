@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { browser } from "$app/environment";
+    /*import { browser } from "$app/environment";
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
     import * as THREE from 'three';
 
@@ -61,17 +61,13 @@
 
         init();
         animate();
-    }
+    }*/
 </script>
 
-<div id="background">
-    <canvas id="smartphone"></canvas>
+<div class="container">
+    <p>Hello world</p>
 </div>
 
 <style>
-    #smartphone {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    
 </style>
