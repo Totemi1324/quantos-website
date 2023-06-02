@@ -12,6 +12,10 @@ p {
     color: var(--theme-text);
 }
 
+h1 {
+    font-size: clamp(2em, 1em + 8vw, 5em);
+}
+
 img {
     display: block;
     max-width: 100%;

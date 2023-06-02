@@ -65,7 +65,7 @@
 </script>
 
 <div class="container">
-    <p>Hello world</p>
+    <h1>Hello World!</h1>
 </div>
 
 <style>
