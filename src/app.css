@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Quicksand:wght@400;600&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
 h1,
@@ -17,6 +18,11 @@ h3 {
 h1 {
     display: inline-block;
     font-size: clamp(2em, 1em + 8vw, 5em);
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 p {
@@ -34,4 +40,14 @@ img {
     max-width: 80rem;
     padding: 0 1em;
     margin: 0 auto;
+}
+
+::-moz-selection {
+    color: white;
+    background: #f1b6e8;
+}
+
+::selection {
+    color: white;
+    background: #f1b6e8;
 }
