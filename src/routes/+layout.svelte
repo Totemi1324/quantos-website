@@ -14,7 +14,9 @@
 	interface ThemeProperties {
 		bgGradientDark: Color;
 		bgGradientLight: Color;
-        text: Color;
+        textBase: Color;
+        textShade: Color;
+        textDescription: Color;
 	}
 
 	class ThemeData {
@@ -30,7 +32,9 @@
 			let values: Array<string> = [];
 			values.push(`--theme-bg-gradient-dark:rgb(${Math.round(this.properties.bgGradientDark.r)}, ${Math.round(this.properties.bgGradientDark.g)}, ${Math.round(this.properties.bgGradientDark.b)})`);
 			values.push(`--theme-bg-gradient-light:rgb(${Math.round(this.properties.bgGradientLight.r)}, ${Math.round(this.properties.bgGradientLight.g)}, ${Math.round(this.properties.bgGradientLight.b)})`);
-            values.push(`--theme-text:rgb(${Math.round(this.properties.text.r)}, ${Math.round(this.properties.text.g)}, ${Math.round(this.properties.text.b)})`);
+            values.push(`--theme-text-base:rgb(${Math.round(this.properties.textBase.r)}, ${Math.round(this.properties.textBase.g)}, ${Math.round(this.properties.textBase.b)})`);
+            values.push(`--theme-text-shade:rgb(${Math.round(this.properties.textShade.r)}, ${Math.round(this.properties.textShade.g)}, ${Math.round(this.properties.textShade.b)})`);
+            values.push(`--theme-text-description:rgb(${Math.round(this.properties.textDescription.r)}, ${Math.round(this.properties.textDescription.g)}, ${Math.round(this.properties.textDescription.b)})`);
 			return values.join(';');
 		}
 	}
@@ -41,17 +45,23 @@
 	const darkTheme: ThemeData = new ThemeData(Theme.Dark, {
 		bgGradientDark: {r: 27, g: 32, b: 51},
 		bgGradientLight: {r: 38, g: 45, b: 51},
-        text: {r: 255, b: 255, g: 255}
+        textBase: {r: 237, b: 237, g: 237},
+        textShade: {r: 130, b: 130, g: 130},
+        textDescription: {r: 183, g: 183, b: 183}
 	});
 	const lightTheme: ThemeData = new ThemeData(Theme.Light, {
 		bgGradientDark: {r: 194, g: 194, b: 194},
 		bgGradientLight: {r: 232, g: 232, b: 232},
-        text: {r: 10, b: 10, g: 10}
+        textBase: {r: 10, b: 10, g: 10},
+        textShade: {r: 100, b: 100, g: 100},
+        textDescription: {r: 40, g: 40, b: 40}
 	});
     const currentTheme: ThemeData = new ThemeData(theme, {
         bgGradientDark: darkTheme.properties.bgGradientDark,
         bgGradientLight: darkTheme.properties.bgGradientLight,
-        text: darkTheme.properties.text
+        textBase: darkTheme.properties.textBase,
+        textShade: darkTheme.properties.textShade,
+        textDescription:  darkTheme.properties.textDescription
     });
 
 	const toggleTheme = () => {
@@ -89,11 +99,21 @@
                 g: THREE.MathUtils.lerp(currentTheme.properties.bgGradientLight.g, targetTheme.properties.bgGradientLight.g, 0.1),
                 b: THREE.MathUtils.lerp(currentTheme.properties.bgGradientLight.b, targetTheme.properties.bgGradientLight.b, 0.1),
             },
-            text: {
-                r: THREE.MathUtils.lerp(currentTheme.properties.text.r, targetTheme.properties.text.r, 0.1),
-                g: THREE.MathUtils.lerp(currentTheme.properties.text.g, targetTheme.properties.text.g, 0.1),
-                b: THREE.MathUtils.lerp(currentTheme.properties.text.b, targetTheme.properties.text.b, 0.1),
-            }
+            textBase: {
+                r: THREE.MathUtils.lerp(currentTheme.properties.textBase.r, targetTheme.properties.textBase.r, 0.1),
+                g: THREE.MathUtils.lerp(currentTheme.properties.textBase.g, targetTheme.properties.textBase.g, 0.1),
+                b: THREE.MathUtils.lerp(currentTheme.properties.textBase.b, targetTheme.properties.textBase.b, 0.1),
+            },
+            textShade: {
+                r: THREE.MathUtils.lerp(currentTheme.properties.textShade.r, targetTheme.properties.textShade.r, 0.1),
+                g: THREE.MathUtils.lerp(currentTheme.properties.textShade.g, targetTheme.properties.textShade.g, 0.1),
+                b: THREE.MathUtils.lerp(currentTheme.properties.textShade.b, targetTheme.properties.textShade.b, 0.1),
+            },
+            textDescription: {
+                r: THREE.MathUtils.lerp(currentTheme.properties.textDescription.r, targetTheme.properties.textDescription.r, 0.1),
+                g: THREE.MathUtils.lerp(currentTheme.properties.textDescription.g, targetTheme.properties.textDescription.g, 0.1),
+                b: THREE.MathUtils.lerp(currentTheme.properties.textDescription.b, targetTheme.properties.textDescription.b, 0.1),
+            },
         }
 
         document.documentElement.style.cssText = currentTheme.exportToCssText();
@@ -111,7 +131,9 @@
     :root {
         --theme-bg-gradient-dark: rgb(27, 32, 51);
         --theme-bg-gradient-light: rgb(38, 45, 51);
-        --theme-text: rgb(255, 255, 255);
+        --theme-text-base: rgb(237, 237, 237);
+        --theme-text-shade: rgb(130, 130, 130);
+        --theme-text-description: rgb(183, 183, 183);
     }
 
 	main {
@@ -133,4 +155,13 @@
 			var(--theme-bg-gradient-dark) 100%
 		);
 	}
+
+    main :global(h1) {
+        color: transparent;
+        background: var(--theme-text-base);
+        background: linear-gradient(138deg, var(--theme-text-base) 75%, var(--theme-text-shade) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 </style>
