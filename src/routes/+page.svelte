@@ -1,6 +1,8 @@
 <script lang="ts">
-    /*import { browser } from "$app/environment";
-    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+    /*import * as rive from '@rive-app/canvas';
+    import { browser } from '$app/environment';
+    import { onMount, onDestroy } from 'svelte';*/
+    /*import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
     import * as THREE from 'three';
 
     if (browser) {
@@ -62,6 +64,32 @@
         init();
         animate();
     }*/
+    /*let riveInstance: rive.Rive;
+    let riveCanvas: HTMLCanvasElement;
+
+    onMount(() => {
+        if (browser) {
+            const init = () => {
+                riveInstance = new rive.Rive({
+                    src: '/animations/downloadbutton.riv',
+                    canvas: riveCanvas,
+                    autoplay: true,
+                    stateMachines: 'ListenForPress',
+                    onLoad: () => {
+                        riveInstance.resizeDrawingSurfaceToCanvas();
+                    },
+                });
+            };
+
+            init();
+        }
+    });
+
+    onDestroy(() => {
+        if (riveInstance) {
+            riveInstance.cleanup();
+        }
+    });*/
 </script>
 
 <div class="container">
