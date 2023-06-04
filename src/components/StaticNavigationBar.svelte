@@ -13,9 +13,14 @@
     const notifyToggleTheme = () => {
         dispatch('toggleTheme');
     };
+    const notifyToggleLowVision = () => {
+        dispatch('toggleLowVision');
+    }
 
     let toggleThemeRiveInstance: rive.Rive;
+    let toggleLowVisionRiveInstance: rive.Rive;
     let toggleThemeCanvas: HTMLCanvasElement;
+    let toggleLowVisionCanvas: HTMLCanvasElement;
 
     onMount(() => {
         if (browser) {
@@ -23,6 +28,12 @@
                 toggleThemeRiveInstance = new rive.Rive({
                     src: '/animations/toggle_theme_button.riv',
                     canvas: toggleThemeCanvas,
+                    autoplay: true,
+                    stateMachines: 'ListenForPress'
+                });
+                toggleLowVisionRiveInstance = new rive.Rive({
+                    src: '/animations/toggle_lowvision_button.riv',
+                    canvas: toggleLowVisionCanvas,
                     autoplay: true,
                     stateMachines: 'ListenForPress'
                 });
@@ -35,6 +46,9 @@
     onDestroy(() => {
         if (toggleThemeRiveInstance) {
             toggleThemeRiveInstance.cleanup();
+        }
+        if (toggleLowVisionRiveInstance) {
+            toggleLowVisionRiveInstance.cleanup();
         }
     });
 </script>
@@ -61,6 +75,7 @@
     </MediaQuery>
     <div class="interactive">
         <canvas id="toggle-theme-button" width="50" height="50" bind:this={toggleThemeCanvas} on:click={notifyToggleTheme}/>
+        <canvas id="toggle-lowvision-button" width="50" height="50" bind:this={toggleLowVisionCanvas} on:click={notifyToggleLowVision}/>
         <a href="https://app.quantos.online">
             <button class="nav-button">Launch App</button>
         </a>
@@ -109,6 +124,7 @@
     .nav-button {
         @extend .nav-link;
         font-family: 'Josefin Sans';
+        color: white;
         font-size: 1.3em;
         padding: 0.7em 1em;
     }
