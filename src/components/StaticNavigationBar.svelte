@@ -5,6 +5,7 @@
 
     import { Theme } from '../stores/theme';
     import MediaQuery from './shared/MediaQuery.svelte';
+    import HoverEffectButton from './shared/HoverEffectButton.svelte';
 
     export let theme: Theme;
     let lastThemeToggle: Date;
@@ -87,21 +88,21 @@
     <div class="interactive">
         <canvas
             id="toggle-theme-button"
-            width="50"
-            height="50"
+            width="57"
+            height="57"
             bind:this={toggleThemeCanvas}
             on:click={notifyToggleTheme}
         />
         <canvas
             id="toggle-lowvision-button"
-            width="50"
-            height="50"
+            width="57"
+            height="57"
             bind:this={toggleLowVisionCanvas}
             on:click={notifyToggleLowVision}
         />
-        <a href="https://app.quantos.online">
-            <button class="nav-button">Launch App</button>
-        </a>
+        <HoverEffectButton href="https://app.quantos.online/">
+            Launch App
+        </HoverEffectButton>
     </div>
 </nav>
 
@@ -118,6 +119,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .interactive > canvas {
+        cursor: pointer;
     }
 
     .nav-links {
@@ -142,13 +146,5 @@
         font-weight: 600;
         color: var(--theme-text-base);
         text-decoration: none;
-    }
-
-    .nav-button {
-        @extend .nav-link;
-        font-family: 'Josefin Sans';
-        color: white;
-        font-size: 1.3em;
-        padding: 0.7em 1em;
     }
 </style>
