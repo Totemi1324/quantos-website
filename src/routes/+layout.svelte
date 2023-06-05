@@ -211,14 +211,6 @@
 </main>
 
 <style>
-    :root {
-        --theme-bg-gradient-dark: rgb(27, 32, 51);
-        --theme-bg-gradient-light: rgb(38, 45, 71);
-        --theme-text-base: rgb(237, 237, 237);
-        --theme-text-shade: rgb(130, 130, 130);
-        --theme-text-description: rgb(183, 183, 183);
-    }
-
     main {
         min-height: 100vh;
         background: var(--theme-bg-gradient-dark);
