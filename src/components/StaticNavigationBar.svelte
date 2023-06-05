@@ -7,14 +7,25 @@
     import MediaQuery from './shared/MediaQuery.svelte';
 
     export let theme: Theme;
+    let lastThemeToggle : Date;
+    let lastLowVisionToggle : Date;
+
+    const dateDifference = (first : Date, second : Date) => Math.abs(first.getTime() - second.getTime());
 
     const dispatch = createEventDispatcher();
 
     const notifyToggleTheme = () => {
-        dispatch('toggleTheme');
+        if (!lastThemeToggle || dateDifference(new Date(), lastThemeToggle) > 1300) {
+            lastThemeToggle = new Date();
+            dispatch('toggleTheme');
+        }
+        
     };
     const notifyToggleLowVision = () => {
-        dispatch('toggleLowVision');
+        if (!lastLowVisionToggle || dateDifference(new Date(), lastLowVisionToggle) > 1300) {
+            lastLowVisionToggle = new Date();
+            dispatch('toggleLowVision');
+        }
     }
 
     let toggleThemeRiveInstance: rive.Rive;
