@@ -7,10 +7,11 @@
     import MediaQuery from './shared/MediaQuery.svelte';
 
     export let theme: Theme;
-    let lastThemeToggle : Date;
-    let lastLowVisionToggle : Date;
+    let lastThemeToggle: Date;
+    let lastLowVisionToggle: Date;
 
-    const dateDifference = (first : Date, second : Date) => Math.abs(first.getTime() - second.getTime());
+    const dateDifference = (first: Date, second: Date) =>
+        Math.abs(first.getTime() - second.getTime());
 
     const dispatch = createEventDispatcher();
 
@@ -19,14 +20,13 @@
             lastThemeToggle = new Date();
             dispatch('toggleTheme');
         }
-        
     };
     const notifyToggleLowVision = () => {
         if (!lastLowVisionToggle || dateDifference(new Date(), lastLowVisionToggle) > 1300) {
             lastLowVisionToggle = new Date();
             dispatch('toggleLowVision');
         }
-    }
+    };
 
     let toggleThemeRiveInstance: rive.Rive;
     let toggleLowVisionRiveInstance: rive.Rive;
@@ -85,8 +85,20 @@
         {/if}
     </MediaQuery>
     <div class="interactive">
-        <canvas id="toggle-theme-button" width="50" height="50" bind:this={toggleThemeCanvas} on:click={notifyToggleTheme}/>
-        <canvas id="toggle-lowvision-button" width="50" height="50" bind:this={toggleLowVisionCanvas} on:click={notifyToggleLowVision}/>
+        <canvas
+            id="toggle-theme-button"
+            width="50"
+            height="50"
+            bind:this={toggleThemeCanvas}
+            on:click={notifyToggleTheme}
+        />
+        <canvas
+            id="toggle-lowvision-button"
+            width="50"
+            height="50"
+            bind:this={toggleLowVisionCanvas}
+            on:click={notifyToggleLowVision}
+        />
         <a href="https://app.quantos.online">
             <button class="nav-button">Launch App</button>
         </a>
@@ -100,7 +112,7 @@
         align-items: center;
         padding: clamp(0.5rem, 3vw, 1.5rem) 3%;
     }
-    
+
     .interactive {
         min-width: clamp(20rem, 30vw, 30rem);
         display: flex;
