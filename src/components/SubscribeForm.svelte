@@ -11,8 +11,8 @@
     import { initializeApp } from 'firebase/app';
     import { getFirestore } from 'firebase/firestore';
 
-    import { firebaseConfig  } from '$lib/firebase';
-    import type { Subscriber } from '$lib/types';
+    import { firebaseConfig  } from '../lib/firebase';
+    import type { Subscriber } from '../lib/types';
 
     let firstName: string = '';
     let email: string = '';
