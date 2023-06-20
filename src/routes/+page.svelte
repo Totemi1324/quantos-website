@@ -1,4 +1,5 @@
 <script lang="ts">
+    import SubscribeForm from "../components/SubscribeForm.svelte";
     /*import * as rive from '@rive-app/canvas';
     import { browser } from '$app/environment';
     import { onMount, onDestroy } from 'svelte';*/
@@ -93,12 +94,11 @@
 </script>
 
 <div class="container">
-    <h1>Hello World!</h1>
+    <h1>Quantum computing at your fingertips.</h1>
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non id deleniti nihil, corporis est
-        quibusdam animi aut fugit distinctio harum. Iusto, provident repudiandae blanditiis ipsum
-        autem odit veritatis temporibus doloremque!
+        Sign up to be among the first to know about updates to Quantos and the release of the full version!
     </p>
+    <SubscribeForm/>
 </div>
 
 <style>

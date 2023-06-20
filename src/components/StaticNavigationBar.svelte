@@ -3,7 +3,7 @@
     import { createEventDispatcher, onMount, onDestroy } from 'svelte';
     import * as rive from '@rive-app/canvas';
 
-    import { Theme } from '../stores/theme';
+    import { Theme } from '../lib/theme';
     import MediaQuery from './shared/MediaQuery.svelte';
     import HoverEffectButton from './shared/HoverEffectButton.svelte';
 

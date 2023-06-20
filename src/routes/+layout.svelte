@@ -1,6 +1,6 @@
 <script lang="ts">
     import * as THREE from 'three';
-    import { Theme } from '../stores/theme';
+    import { Theme } from '../lib/theme';
     import StaticNavigationBar from '../components/StaticNavigationBar.svelte';
 
     interface Color {
