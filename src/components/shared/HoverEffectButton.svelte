@@ -28,9 +28,13 @@
     .button-text {
         text-decoration: none;
         font-family: 'Josefin Sans';
-        color: white;
+        color: var(--theme-text-base);
         font-size: 1.3em;
         padding: 0.7em 1em;
+        transition: color 350ms ease;
+    }
+    .button-text:hover {
+        color: white;
     }
 
     .container {
