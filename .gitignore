@@ -22,3 +22,4 @@ vite.config.js.timestamp-*
 symlink-from
 
 firebase.ts
+Firebase.svelte
