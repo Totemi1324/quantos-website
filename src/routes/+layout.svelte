@@ -1,7 +1,8 @@
 <script lang="ts">
     import * as THREE from 'three';
-    import { Theme } from '../lib/theme';
+    import { Theme } from '$lib/theme';
     import StaticNavigationBar from '../components/StaticNavigationBar.svelte';
+    import StaticFooter from '../components/StaticFooter.svelte';
 
     interface Color {
         r: number;
@@ -232,6 +233,7 @@
 <main>
     <StaticNavigationBar {theme} on:toggleTheme={toggleTheme} on:toggleLowVision={toggleLowVision}/>
     <slot />
+    <StaticFooter/>
 </main>
 
 <style>
