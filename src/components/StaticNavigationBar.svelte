@@ -67,7 +67,7 @@
 
 <nav>
     <a href="/">
-        {#if theme == Theme.Dark}
+        {#if theme != Theme.Light}
             <img src="/images/logo_darkBackground.svg" alt="Quantos Logo" />
         {:else}
             <img src="/images/logo_lightBackground.svg" alt="Quantos Logo" />

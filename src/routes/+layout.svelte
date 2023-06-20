@@ -64,6 +64,7 @@
 
     let interpolated = false;
     let theme: Theme = Theme.Dark;
+    let previousTheme: Theme = theme;
     let targetTheme: ThemeData;
     const darkTheme: ThemeData = new ThemeData(Theme.Dark, {
         bgGradientDark: { r: 27, g: 32, b: 51 },
@@ -79,6 +80,13 @@
         textShade: { r: 100, b: 100, g: 100 },
         textDescription: { r: 40, g: 40, b: 40 }
     });
+    const lowVisionTheme: ThemeData = new ThemeData(Theme.LowVision, {
+        bgGradientDark: {r: 0, g: 0, b: 0},
+        bgGradientLight: {r: 0, g: 0, b: 0},
+        textBase: { r: 255, g: 253, b: 72 },
+        textShade: { r: 255, g: 253, b: 72 },
+        textDescription: { r: 255, g: 253, b: 72 }
+    });
     const currentTheme: ThemeData = new ThemeData(theme, {
         bgGradientDark: darkTheme.properties.bgGradientDark,
         bgGradientLight: darkTheme.properties.bgGradientLight,
@@ -88,6 +96,9 @@
     });
 
     const toggleTheme = () => {
+        if (theme == Theme.LowVision) {
+            return;
+        }
         if (theme == Theme.Dark) {
             theme = Theme.Light;
         } else {
@@ -95,6 +106,16 @@
         }
         setTheme(theme);
     };
+    const toggleLowVision = () => {
+        if (theme == Theme.LowVision) {
+            theme = previousTheme;
+        } else {
+            previousTheme = theme;
+            theme = Theme.LowVision;
+        }
+        setTheme(theme);
+    }
+
     const setTheme = (theme: Theme) => {
         switch (theme) {
             case Theme.Dark:
@@ -102,6 +123,9 @@
                 break;
             case Theme.Light:
                 targetTheme = lightTheme;
+                break;
+            case Theme.LowVision:
+                targetTheme = lowVisionTheme;
                 break;
         }
 
@@ -206,7 +230,7 @@
 </script>
 
 <main>
-    <StaticNavigationBar {theme} on:toggleTheme={toggleTheme} />
+    <StaticNavigationBar {theme} on:toggleTheme={toggleTheme} on:toggleLowVision={toggleLowVision}/>
     <slot />
 </main>
 
