@@ -54,8 +54,7 @@
         background: linear-gradient(
             130deg,
             transparent 0% 33%,
-            var(--theme-primary) 66%,
-            var(--theme-secondary) 100%
+            var(--theme-primary) 66%
         );
         background-position: 0% 0%;
         background-size: 300% 300%;

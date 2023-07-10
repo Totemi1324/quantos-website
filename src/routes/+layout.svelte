@@ -68,8 +68,8 @@
     let previousTheme: Theme = theme;
     let targetTheme: ThemeData;
     const darkTheme: ThemeData = new ThemeData(Theme.Dark, {
-        bgGradientDark: { r: 27, g: 32, b: 51 },
-        bgGradientLight: { r: 38, g: 45, b: 71 },
+        bgGradientDark: { r: 9, g: 10, b: 17 },
+        bgGradientLight: { r: 27, g: 32, b: 50 },
         textBase: { r: 237, b: 237, g: 237 },
         textShade: { r: 130, b: 130, g: 130 },
         textDescription: { r: 183, g: 183, b: 183 }
@@ -261,9 +261,9 @@
         color: transparent;
         background: var(--theme-text-base);
         background: linear-gradient(
-            138deg,
-            var(--theme-text-base) 75%,
-            var(--theme-text-shade) 100%
+            160deg,
+            var(--theme-text-base) 50%,
+            var(--theme-text-shade) 75%
         );
         background-clip: text;
         -webkit-background-clip: text;
