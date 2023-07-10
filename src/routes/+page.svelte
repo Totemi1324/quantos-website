@@ -1,10 +1,10 @@
 <script lang="ts">
     import SubscribeForm from '../components/SubscribeForm.svelte';
-    import { browser } from '$app/environment';
+    //import { browser } from '$app/environment';
     /*import * as rive from '@rive-app/canvas';
     
     import { onMount, onDestroy } from 'svelte';*/
-    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+    /*import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
     import * as THREE from 'three';
 
@@ -75,7 +75,7 @@
 
         init();
         animate();
-    }
+    }*/
     /*let riveInstance: rive.Rive;
     let riveCanvas: HTMLCanvasElement;
 
@@ -105,28 +105,16 @@
 </script>
 
 <div class="container">
-    <canvas id="smartphone" width="1000" height="800" />
-        <h1>Quantum computing at your fingertips.</h1>
+    <h1>Quantum computing at your fingertips.</h1>
     <p>
-        Sign up to be among the first to know about updates to Quantos and the release of
-        the full version!
+        Sign up to be among the first to know about updates to Quantos and the release of the full
+        version!
     </p>
     <SubscribeForm />
 </div>
 
 <style>
-    .float {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: min-content;
-    }
-
     h1 {
-        margin-top: auto;
-    }
-
-    #smartphone {
-        display: block;
-        margin: 0 auto;
+        margin-top: 10vh;
     }
 </style>
